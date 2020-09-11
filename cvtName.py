@@ -7,7 +7,7 @@ import timeit
 
 def rename():
     path = input('path=?\n')
-    all_file = glob.glob('%s/*.jpg' % path)
+    all_file = sorted(glob.glob('%s/*.jpg' % path), key=os.path.getmtime)
     if len(all_file) == 0:
         print('no file!\n')
         return None
